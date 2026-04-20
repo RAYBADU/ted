@@ -1,0 +1,4 @@
+node_modules/
+ted/node_modules/
+ted/dist/
+npm-debug.log*
