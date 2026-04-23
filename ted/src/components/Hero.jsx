@@ -6,6 +6,7 @@ import flowerPot from "../assets/flowerPot.webp";
 import { LuMoveRight } from "react-icons/lu";
 import { GoDotFill } from "react-icons/go";
 import { motion } from "framer-motion";
+import Timer from "./Timer";
 
 const Hero = () => {
   return (
@@ -14,7 +15,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="  max-w-4xl text-center py-30 relative font-[inter] px-6 bg-white"
+        className="relative w-full max-w-4xl bg-white px-4 py-24 text-center font-[inter] sm:px-6 md:py-28"
       >
         <img
           src={TedxLogo}
@@ -42,8 +43,8 @@ const Hero = () => {
 
         {/* alert box */}
 
-        <div className="border border-red-300 shadow-md mt-8 max-w-96 py-3 mx-auto rounded-full bg-red-100 flex justify-center items-center ">
-          <p className="text-center text-sm font-bold text-red-600  font-[poppins]">
+        <div className=" shadow-sm mt-8 max-w-96 py-3 mx-auto rounded-full bg-red-50 flex justify-center items-center ">
+          <p className="px-4 text-center text-xs font-bold text-red-600 font-[poppins] sm:text-sm">
             <GoDotFill className="inline-block mr-2" />
             EARLY BIRD TICKETS- LIMITED AVAILABILITY
           </p>
@@ -51,20 +52,26 @@ const Hero = () => {
 
         {/* button */}
 
-        <button className="bg-red-600 font-semibold hover:font-bold cursor-pointer hover:bg-red-700 transition-colors duration-300 text-white px-8 py-4 rounded-full mt-8 my-20 max-md:w-50 z-5 absolute -translate-x-1/2 ">
+        <button className="mt-8 inline-flex items-center justify-center rounded-full bg-red-600 px-8 py-4 text-white transition-colors duration-300 hover:bg-red-700 cursor-pointer sm:min-w-52">
           Get Tickets{" "}
           <LuMoveRight className="inline-block ml-2 font-extrabold" />
         </button>
       </motion.section>
 
       {/* date , info and venue */}
-      <div className="bg-red-600 w-full h-16 text-center text-white font-bold flex justify-center items-center text-xs md:text-lg  space-x-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+        className="flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 bg-red-600 px-4 py-4 text-center text-[11px] font-bold text-white sm:text-xs md:text-lg"
+      >
         <p>7 MAY 2026 </p>
         <p className="text-white/60">|</p>
         <p>8:00AM - 4:00PM </p>
         <p className="text-white/60">|</p>
         <p>SMS AUDITORIUM, UCC</p>
-      </div>
+      </motion.div>
 
       <motion.img
         initial={{ opacity: 0 }}
@@ -72,19 +79,23 @@ const Hero = () => {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
         src={flower}
         alt=""
-        className="w-30 md:w-40 lg:w-60 absolute top-5 left-0"
+        className="pointer-events-none absolute left-0 top-12 w-24 sm:w-28 md:w-40 lg:w-60"
       />
       <motion.img
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-
         src={flowerPot}
         alt=""
-        className="w-40 md:w-65 lg:w-80 absolute right-0 bottom-12 md:top-1/2"
+        className="pointer-events-none absolute bottom-8 right-0 w-28 sm:w-36 md:top-1/2 md:w-56 lg:w-72"
       />
 
-      <p className="text-center px-6 text-slate-600  md:max-w-4xl mt-12">
+      <motion.p
+      initial={{opacity:0, y:20}}
+      whileInView={{opacity:1, y:0}}
+      viewport={{once:true}}
+      transition={{duration:0.5, delay:0.4}}
+      className="text-center px-6 text-slate-600  md:max-w-4xl mt-12">
         Your{" "}
         <span className="text-red-600 font-semibold">
           TEDxUniversityofCapeCoast Membership
@@ -92,7 +103,14 @@ const Hero = () => {
         puts you in the room where our collective future unfolds. It helps
         powerful ideas reach the world and makes our non-profit mission
         possible.
-      </p>
+      </motion.p>
+
+
+{/* <h1 className="uppercase font-semibold tracking-wider text-red-600 text-2xl md:text-4xl mt-8 font-[arial]">the countdown is on...</h1> */}
+
+
+<Timer/>
+
     </>
   );
 };

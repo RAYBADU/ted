@@ -2,7 +2,7 @@ import React from 'react'
 
 const VipCard = ({title, description, image}) => {
   return (
-    <div className="mt-6 shadow-sm hover:shadow-md rounded-lg  w-80  mx-auto bg-white overflow-x-hidden cursor-pointer font-[inter]">
+    <div className="mt-6 w-full max-w-80 mx-auto overflow-hidden rounded-lg bg-white font-[inter] shadow-sm cursor-pointer hover:shadow-md">
       <img
         src={image}
         alt={title}

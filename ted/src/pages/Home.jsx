@@ -8,6 +8,8 @@ import StandardCard from "../components/StandardCard";
 import VipCard from "../components/VipCard";
 
 import { motion } from "framer-motion";
+import { LuMoveRight } from "react-icons/lu";
+import { FaFire } from "react-icons/fa";
 
 import tedtalks from "../assets/tedtalks.webp";
 import discoverysessions2 from "../assets/discoverysessions2.webp";
@@ -97,7 +99,7 @@ const Home = () => {
       description:
         "Skip the wait with expedited entry for a seamless arrival experience.",
     },
-   
+
     {
       id: 5,
       image: photosWithSpeakers,
@@ -115,7 +117,7 @@ const Home = () => {
   ];
 
   return (
-    <section className=" py-4 min-h-screen flex flex-col justify-center items-center gap-10 bg-white">
+    <section className=" min-h-screen flex flex-col justify-center items-center gap-10 bg-white">
       <Hero />
       <Info
         subtitle="Early Bird Pricing"
@@ -132,9 +134,10 @@ const Home = () => {
 
       <Info subtitle="STANDARD & STUDENT" title="What You Will Get" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-3">
+      <div className="grid w-full max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
         {standartData.map((item, index) => (
           <motion.div
+            key={item.id}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
@@ -145,7 +148,6 @@ const Home = () => {
             viewport={{ once: true, amount: 0.6 }}
           >
             <StandardCard
-              key={item.id}
               image={item.image}
               title={item.title}
               description={item.description}
@@ -161,28 +163,55 @@ const Home = () => {
 "
       />
 
-
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-3">
-      {vipData.map((item, index) => (
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.5,
-            delay: index * 0.3,
-            ease: "easeOut",
-          }}
-          viewport={{ once: true, amount: 0.6 }}
-        >
-          <VipCard
+      <div className="grid w-full max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
+        {vipData.map((item, index) => (
+          <motion.div
             key={item.id}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-          />
-        </motion.div>
-      ))}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.3,
+              ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.6 }}
+          >
+            <VipCard
+              image={item.image}
+              title={item.title}
+              description={item.description}
+            />
+          </motion.div>
+        ))}
       </div>
+
+      {/* red header */}
+
+      <header className="bg-red-600 py-22 px-5 w-full h-auto text-center text-white font-[poppins]">
+        <div className="max-w-90 px-1 py-2 text-center bg-white/24 rounded-full uppercase text-sm tracking-wide font-semibold mx-auto">
+          <FaFire className="inline mr-2" /> early bird ticket almost sold out
+        </div>
+
+        <h1 className=" text-xl md:text-4xl font-bold mt-12">
+          Ready To Be Part Of Something Extraordinary?
+        </h1>
+        <p className="text-sm mt-8 text-white/90 leading-7">
+          Join visionaries, creators, and changemakers at
+          TEDxUniversityofCapeCoast 2026. Secure your Early Bird seat today and
+          be in the room where powerful ideas come alive
+        </p>
+
+        <button className="mt-4 px-6 py-5 bg-white text-red-600 font-bold rounded-full hover:bg-white/90 cursor-pointer transition-all duration-300 text-xs md:text-sm">
+          Get Your Ticket Now <LuMoveRight className="inline-block ml-2" />{" "}
+        </button>
+
+        <small className="block mt-5 text-white/80">
+          Questions? Send a note to{" "}
+          <span className="underline font-semibold text-white">
+            info@tedxucc.com
+          </span>
+        </small>
+      </header>
     </section>
   );
 };

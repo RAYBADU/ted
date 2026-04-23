@@ -5,9 +5,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Event from "./pages/Event";
 import Speakers from "./pages/Speakers";
+import Footer from "./components/Footer";
 const App = () => {
   return (
-    <div className="">
+    <div className="bg-white">
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -15,8 +16,16 @@ const App = () => {
         <Route path="/event" element={<Event />} />
         <Route path="/speakers" element={<Speakers />} />
       </Routes>
+
+      <div className="">
+      <Footer/>
+
+      </div>
     </div>
   );
 };
 
 export default App;
+
+
+// wanna implement some toast when a user submits the email

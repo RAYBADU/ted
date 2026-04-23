@@ -2,7 +2,7 @@ import { Component, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter  } from "react-router-dom";
 
 class RootErrorBoundary extends Component {
   constructor(props) {
@@ -41,9 +41,9 @@ class RootErrorBoundary extends Component {
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RootErrorBoundary>
-      <BrowserRouter>
+      <HashRouter >
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </RootErrorBoundary>
   </StrictMode>
 );

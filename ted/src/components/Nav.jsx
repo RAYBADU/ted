@@ -19,10 +19,10 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-white/90 px-5 py-3 shadow-sm backdrop-blur-xs md:px-12 lg:px-20">
+      <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-white/90 px-5 py-3 shadow-sm backdrop-blur-md md:px-12 lg:px-20">
         <img src={TedxLogo} alt="Logo" className="w-32 md:w-40" />
 
-        <div className="hidden gap-6 font-semibold text-slate-800 md:flex">
+        <div className="hidden gap-6 font-semibold text-slate-800 md:flex text-sm">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -44,7 +44,7 @@ const Nav = () => {
           <button
             type="button"
             aria-label="Open menu"
-            className="grid h-11 w-11 place-items-center cursor-pointer border-red-100 bg-white text-3xl text-slate-900 md:hidden"
+            className="grid h-11 w-11 place-items-center cursor-pointer  text-3xl text-slate-900 md:hidden"
             onClick={() => setIsOpen(true)}
           >
             <HiBars2 />
