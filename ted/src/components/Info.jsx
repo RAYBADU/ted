@@ -11,7 +11,7 @@ const Info = ({subtitle, title, normal}) => {
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
     
     className='text-center mt-8 font-[poppins]'>
-   <h4 className='text-red-600 uppercase font-semibold'>{subtitle}
+   <h4 className='text-red-600 uppercase font-semibold tracking-widest'>{subtitle}
 </h4>
 <h1 className='text-3xl md:text-4xl  font-bold'>{title}
 </h1>

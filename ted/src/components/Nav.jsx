@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Speakers", to: "/speakers" },
 ];
 
-const Nav = () => {
+const Nav = ({ setTicketModalOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
 
@@ -19,7 +19,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-white/90 px-5 py-3 shadow-sm backdrop-blur-md md:px-12 lg:px-20">
+      <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-white/90 px-5 py-3 shadow-xs border border-gray-600/10 backdrop-blur-md md:px-12 lg:px-20">
         <img src={TedxLogo} alt="Logo" className="w-32 md:w-40" />
 
         <div className="hidden gap-6 font-semibold text-slate-800 md:flex text-sm">
@@ -37,7 +37,11 @@ const Nav = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="rounded-full bg-red-600 px-4 py-3 text-xs font-semibold text-white transition-colors duration-300 hover:bg-red-700 md:px-5 md:text-sm cursor-pointer">
+          <button
+            type="button"
+            className="rounded-full bg-red-600 px-4 py-3 text-xs font-semibold text-white transition-colors duration-300 hover:bg-red-700 md:px-5 md:text-sm cursor-pointer"
+            onClick={() => setTicketModalOpen(true)}
+          >
             Get Tickets
           </button>
 

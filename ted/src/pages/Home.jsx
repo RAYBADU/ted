@@ -24,7 +24,7 @@ import fastTrack from "../assets/Fasttrackcheckin.webp";
 import photosWithSpeakers from "../assets/photoswithspeakers.webp";
 import supportsImpact from "../assets/supportsourimpacts.webp";
 
-const Home = () => {
+const Home = ({ setTicketModalOpen }) => {
   const standartData = [
     {
       id: 1,
@@ -117,8 +117,8 @@ const Home = () => {
   ];
 
   return (
-    <section className=" min-h-screen flex flex-col justify-center items-center gap-10 bg-white">
-      <Hero />
+    <section  className=" min-h-screen flex flex-col justify-center items-center gap-10 bg-white">
+      <Hero setTicketModalOpen={setTicketModalOpen} />
       <Info
         subtitle="Early Bird Pricing"
         title="Choose Your Experience"
@@ -201,17 +201,22 @@ const Home = () => {
           be in the room where powerful ideas come alive
         </p>
 
-        <button className="mt-4 px-6 py-5 bg-white text-red-600 font-bold rounded-full hover:bg-white/90 cursor-pointer transition-all duration-300 text-xs md:text-sm">
+        <button
+          type="button"
+          className="mt-4 px-6 py-5 bg-white text-red-600 font-bold rounded-full hover:bg-white/90 cursor-pointer transition-all duration-300 text-xs md:text-sm"
+          onClick={() => setTicketModalOpen(true)}
+        >
           Get Your Ticket Now <LuMoveRight className="inline-block ml-2" />{" "}
         </button>
 
         <small className="block mt-5 text-white/80">
           Questions? Send a note to{" "}
           <span className="underline font-semibold text-white">
-            info@tedxucc.com
+            <a href="mailto:info@tedxucc.com">info@tedxucc.com</a>
           </span>
         </small>
       </header>
+
     </section>
   );
 };

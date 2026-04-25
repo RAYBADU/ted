@@ -8,7 +8,11 @@ import { GoDotFill } from "react-icons/go";
 import { motion } from "framer-motion";
 import Timer from "./Timer";
 
-const Hero = () => {
+
+const Hero = ({ setTicketModalOpen }) => {
+  
+
+
   return (
     <>
       <motion.section
@@ -52,8 +56,8 @@ const Hero = () => {
 
         {/* button */}
 
-        <button className="mt-8 inline-flex items-center justify-center rounded-full bg-red-600 px-8 py-4 text-white transition-colors duration-300 hover:bg-red-700 cursor-pointer sm:min-w-52">
-          Get Tickets{" "}
+        <button onClick={()=> setTicketModalOpen(true)} className="mt-8 inline-flex items-center justify-center rounded-full bg-red-600 px-8 py-4 text-white transition-colors duration-300 hover:bg-red-700 cursor-pointer sm:min-w-52">
+          Get Ticket
           <LuMoveRight className="inline-block ml-2 font-extrabold" />
         </button>
       </motion.section>

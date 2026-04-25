@@ -6,7 +6,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
-
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const Footer = () => {
@@ -30,7 +30,13 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-linear-to-b from-black/80 to-gray-900 w-full px-5 py-8 text-white sm:px-6 lg:px-10">
+    <motion.footer
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="bg-linear-to-b from-black/80 to-gray-900 w-full px-5 py-8 text-white sm:px-6 lg:px-10"
+    >
       {/* ------------------------------------------------------------ */}
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 lg:flex-row lg:justify-between">
         <div className="max-w-xl">
@@ -161,7 +167,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
